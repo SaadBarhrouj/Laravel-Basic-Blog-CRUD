@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
+
 
 
 class PostController extends Controller // StudlyCase
@@ -50,7 +52,8 @@ class PostController extends Controller // StudlyCase
     */
 
 public function create(){
-  return view('posts.create');
+  $allUsersFromDB=USER::all();
+  return view('posts.create',['users'=>$allUsersFromDB]);
 }
 
 public function store(){
@@ -58,6 +61,20 @@ public function store(){
   $title=request()->title;
   $description=request()->description;
   $postCreator=request()->post_creator;
+  /*there are two methods to insert the data to the data base 
+  the first: 
+  $post=new Post;
+  $post->title=$title;
+  $post->description=$description;
+  $post->save() ;
+  the second:
+   */
+  Post::create([
+    'title'=>$title,
+    'description'=>$description
+  ]);
+  return to_route('posts.index');
+  
   
 }
 
