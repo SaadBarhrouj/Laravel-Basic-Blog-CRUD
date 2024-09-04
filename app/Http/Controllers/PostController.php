@@ -71,7 +71,8 @@ public function store(){
    */
   Post::create([
     'title'=>$title,
-    'description'=>$description
+    'description'=>$description,
+    'user_id'=> $postCreator,
   ]);
   return to_route('posts.index');
   
@@ -92,8 +93,9 @@ public function update($postId){
 
   $singlePostFromDB=Post::findOrFail($postId);
   $singlePostFromDB->update([
-    'title'=>$title,
-    'description'=>$description,
+    'title'=> $title,
+    'description'=> $description,
+    
   ]);
   return to_route('posts.show',$postId);
 
