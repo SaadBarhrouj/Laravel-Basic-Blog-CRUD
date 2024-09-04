@@ -78,24 +78,35 @@ public function store(){
   
 }
 
-public function edit(){
+public function edit(Post $post){
 
-  
-  return view('posts.edit');
+  $allUsersFromDB=USER::all();
+  return view('posts.edit',['users'=>$allUsersFromDB,'post'=>$post]);
 
 }
-public function update(){
+public function update($postId){
+ 
   $title=request()->title;
   $description=request()->description;
   $postCreator=request()->post_creator;
-  return to_route('posts.show',1);
+
+  $singlePostFromDB=Post::findOrFail($postId);
+  $singlePostFromDB->update([
+    'title'=>$title,
+    'description'=>$description,
+  ]);
+  return to_route('posts.show',$postId);
 
 
   }
 
-  public function destroy(){
+  public function destroy($postId){
     // delete post from db
     //redirection to index page
+    $singlePostFromDB=Post::findOrFail($postId);
+    $singlePostFromDB->delete();
+    /*
+    second method :  Post::where('id','$postId')->delete();  but with this method you don[t get the model events ???*/
     return to_route('posts.index');
   
   
