@@ -57,6 +57,12 @@ public function create(){
 }
 
 public function store(){
+
+  request()->validate([
+    'title'=> ['required', 'min:3'],
+    'description'=>['required', 'min:3'],
+    'post_creator'=>['required','exists:users,id'], // la Valeur de post_creator doit etre exist dans la table users exactement  dans column "id"
+  ]);
   $data=request()->all();
   $title=request()->title;
   $description=request()->description;
@@ -95,6 +101,7 @@ public function update($postId){
   $singlePostFromDB->update([
     'title'=> $title,
     'description'=> $description,
+    'user_id'=>$postCreator,
     
   ]);
   return to_route('posts.show',$postId);

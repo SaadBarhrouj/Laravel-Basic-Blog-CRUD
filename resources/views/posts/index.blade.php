@@ -24,8 +24,8 @@
 
     <th scope="row">{{$post->id}}</th>
       <td>{{$post-> title}}</td>
-      <td>{{$post->posted_by}}</td>
-      <td>{{$post->created_at}}</td>
+      <td> {{$post->user? $post->user->name:"not found"}}</td>
+      <td>{{$post->created_at->addDays(35)->format('Y-m-d')}}</td>
      
       <td>    
       <a type="button" class="btn btn-info" href="{{route('posts.show',$post->id)}}">View</a>
