@@ -2,7 +2,7 @@
 
 
 <div style="text-align: center;">
-    <img src="preview/1.preview.png" alt="Aperçu EnsaDocs" width="400" style="border: 2px solid #000; display: inline-block;">
+    <img src="preview/1.preview.png" alt="Aperçu EnsaDocs" width="800" style="border: 2px solid #000; display: inline-block;">
    
 </div>
 
