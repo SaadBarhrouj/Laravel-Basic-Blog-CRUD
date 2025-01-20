@@ -2,8 +2,7 @@
 
 
 <div style="text-align: center;">
-    <img src="preview/1.preview.png" alt="Aperçu EnsaDocs" width="800" style="border: 2px solid #000; display: inline-block;">
-   
+    <img src="preview/1.preview.png" alt="Aperçu EnsaDocs" width="800" style="border: 2px solid #000; display: inline-block;">   
 </div>
 
 <hr>
@@ -36,7 +35,7 @@ Voici les routes principales de l'application :
 ## 📦 Installation
 1. Clonez ce dépôt :
    ```bash
-   git clone https://github.com/votre-utilisateur/Laravel-Basic-Blog-CRUD.git
+   git clone https://github.com/SaadBarhrouj/Laravel-Basic-Blog-CRUD.git
    cd Laravel-Basic-Blog-CRUD
    ```
 
